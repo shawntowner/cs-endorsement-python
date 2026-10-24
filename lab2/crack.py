@@ -4,7 +4,7 @@
 secret = "Ehpyej-qtgp vpjd lcp yze pyzfrs ez vppa l dpncpe."
 
 # YOUR CODE: this tries only shift 1. Change the range so it tries every shift from 1 to 25.
-for shift in range(1, 2):
+for shift in range(-25, 25):
     result = ""
     for ch in secret:
         if ch.isupper():

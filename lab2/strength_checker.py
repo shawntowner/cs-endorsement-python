@@ -20,6 +20,10 @@ for ch in password:
         uppercase = uppercase + 1
     elif ch.islower():
         lowercase = lowercase + 1
+    elif ch.isdigit():
+        digits = digits +1
+    else:
+        symbols = symbols +1
     # YOUR CODE: add an elif that counts digits
     # YOUR CODE: add an else that counts everything left as a symbol
 
@@ -42,6 +46,8 @@ elif length >= 16:
     rating = "Strong"
 elif length >= 12 and kinds >= 2:
     rating = "Strong"
+elif length >= 8 and kinds >= 3:
+    rating = "Fair"
 # YOUR CODE: add the Fair rule here (at least 8 characters and at least 3 kinds)
 else:
     rating = "Weak"
