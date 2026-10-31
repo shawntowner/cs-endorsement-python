@@ -17,7 +17,7 @@ def is_valid_id(text):
     Anything else is rejected, not repaired.
     """
     # YOUR CODE: replace the line below with the real check.
-    return False
+    return len(text) == 7 and text.isdigit()
 
 
 def mask(text):
@@ -26,7 +26,10 @@ def mask(text):
     Example: mask("4417730") returns "***7730".
     """
     # YOUR CODE: replace the line below with the real mask.
-    return text
+    if len(text) <= 4:
+        return "*" * len(text)
+    hidden = len(text) - 4
+    return "*" * hidden + text[-4:]
 
 
 print("Testing is_valid_id")
@@ -41,4 +44,11 @@ print()
 print("Testing mask")
 check(mask("4417730"), "***7730")
 check(mask("912-555-0142"), "********0142")
-# YOUR CODE: add your two tests below this line.
+
+print()
+print("MyTests")
+check(is_valid_id("g6c22p85"), False) #too long and letters
+check(mask("123456789101112"), "***********1112")
+
+check(mask("12"), "**")
+
