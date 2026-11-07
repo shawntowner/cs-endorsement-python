@@ -4,7 +4,7 @@
 import os
 import requests
 
-DATE = "1969-07-20"    # change this to any date, written year-month-day
+DATE = "07/20/1969"    # change this to any date, written year-month-day
 
 
 def ask_nasa(date, key):
@@ -50,7 +50,10 @@ def explore(date):
 
     # YOUR CODE (Part B): report only when the status code is 200.
     # Otherwise, print that NASA did not send data, then print response.text.
-    report(response.json(), date)
-
+    if response.status_code == 200:
+        report(response.json(), date)
+    else:
+        print("NASA did not send data.")
+    print(response.text)
 
 explore(DATE)
