@@ -56,7 +56,9 @@ for student in roster:
     score = int(student["score"])
     # YOUR CODE: if this score is higher than highest, store it in highest
     # and store the student's name in top_name.
-
+    if score > highest:
+        highest = score
+        top_name = student["name"]
 print("Highest score:", highest, top_name)
 print()
 
@@ -71,7 +73,9 @@ def deidentify(roster):
         record = {}
         record["code"] = "S" + str(number)   # S1, S2, S3, ...
         # YOUR CODE: copy over only the fields the reader needs, for example
-        # record["score"] = student["score"]
+        record["score"] = student["score"]
+        record["grade_level"] = student["grade_level"]
+        record["iep"] = student["iep"]
         shared.append(record)
         number = number + 1
     return shared
