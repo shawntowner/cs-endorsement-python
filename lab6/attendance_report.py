@@ -4,7 +4,7 @@
 
 import os
 
-ADMIN_PASSWORD = "lakeside-admin"
+ADMIN_PASSWORD = os.environ.get("REPORT_PASSWORD")
 
 days_in_week = 5
 
@@ -19,20 +19,21 @@ attendance = {
 }
 
 # Add up every student's days present
+total_present = 0
+
 for name in attendance:
-    total_present = 0
     total_present = total_present + attendance[name]
 
 average = total_present / len(attendance)
 
 print("Class attendance report")
 print("Students:", len(attendance))
-print("Average days present: " + round(average, 1) + " of " + str(days_in_week))
+print("Average days present: " + str(round(average, 1)) + " of " + str(days_in_week))
 print()
 
 password = input("Staff password for the full report: ")
 
-if password == ADMIN_PASSWORD
+if password == ADMIN_PASSWORD:
     for name in attendance:
         print(name, "was present", attendance[name], "of", days_in_week, "days")
 else:
